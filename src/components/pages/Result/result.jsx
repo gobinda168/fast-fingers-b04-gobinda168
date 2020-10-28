@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
 
-export const GameOver = () => {
+export const GameOver = (props) => {
   const { userScores, newHighScore, gameTimer, setNewHighScore } = useContext(
     AppContext
   );
@@ -19,15 +19,16 @@ export const GameOver = () => {
       <div className="text-color-white highscore">
         {gameTimer > newHighScore && "New High Score"}
       </div>
+      {/* <Link to="/game"> */}
       <div
         className="play-again"
         onClick={() => {
+          window.history.go(0);
           setNewHighScore(gameTimer > newHighScore ? gameTimer : newHighScore);
           localStorage.setItem(
             "highscore",
             JSON.stringify(gameTimer > newHighScore ? gameTimer : newHighScore)
           );
-          window.location.reload();
         }}
       >
         <div className="game-center-reload">
@@ -35,6 +36,8 @@ export const GameOver = () => {
           <h2>PLAY AGAIN</h2>
         </div>
       </div>
+      {/* </Link> */}
     </div>
   );
 };
+
