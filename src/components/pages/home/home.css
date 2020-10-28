@@ -30,7 +30,6 @@
 .input-field-name:focus {
   outline: none;
   text-transform: uppercase;
-  font-size: 1.3vw;
   font-weight: normal;
 }
 
@@ -54,6 +53,9 @@
   /* For mobile phones: */
   .input-field-name {
     width: 75vw;
+    font-size: large;
+  }
+  .input-field-name::placeholder {
     font-size: large;
   }
   .start-game {
